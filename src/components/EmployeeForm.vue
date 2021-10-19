@@ -1,11 +1,13 @@
 <template>
   <div id="employee-form">
     <form>
-      <label>Employee name</label>
-      <input type="text" />
-      <label>Employee Email</label>
-      <input type="text" />
-      <button>Add Employee</button>
+      <form @submit.prevent="handleSubmit">
+        <label>Employee name</label>
+        <input v-model="employee.name" type="text" />
+        <label>Employee Email</label>
+        <input v-model="employee.email" type="text" />
+        <button>Add Employee</button>
+      </form>
     </form>
   </div>
 </template>
@@ -20,6 +22,11 @@ export default {
         email: "",
       },
     };
+  },
+  methods: {
+    handleSubmit() {
+      console.log("testing handleSubmit");
+    },
   },
 };
 </script>
